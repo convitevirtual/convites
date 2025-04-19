@@ -1,82 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-body {
+body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica', sans-serif;
-  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-  color: #333;
-  text-align: center;
-}
-
-.container {
-  padding: 40px 20px;
-}
-
-h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3em;
-  margin-bottom: 0;
-}
-
-.date, .location {
-  font-size: 1.2em;
-  margin: 5px 0;
-}
-
-button {
-  margin-top: 30px;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background-color: #ad1457;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #880e4f;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
+  overflow: hidden;
+  font-family: sans-serif;
+  background-color: black;
 }
 
-.modal-content {
-  margin: auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 600px;
-  position: relative;
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  display: block;
 }
 
-video {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.close {
-  color: #aaa;
+.click-to-play {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 28px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px 30px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+  z-index: 1;
+  transition: 0.3s ease;
 }
 
-.close:hover {
-  color: #000;
+.click-to-play:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
