@@ -7,34 +7,35 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="invitation">
     <h1>João & Maria</h1>
     <p class="date">25 de Dezembro de 2025 às 18h</p>
     <p class="location">Espaço Bella Vista - São Paulo, SP</p>
 
-    <button id="openVideo">Ver Convite em Vídeo</button>
-
-    <div id="videoModal" class="modal">
-      <div class="modal-content">
-        <span id="closeVideo" class="close">&times;</span>
-        <video controls autoplay>
-          <source src="video.mp4" type="video/mp4" />
-          Seu navegador não suporta vídeo.
-        </video>
-      </div>
+    <div class="link-buttons">
+      <a href="https://maps.google.com" target="_blank">Localização</a>
+      <a href="https://www.exemplo.com/lista" target="_blank">Lista de Presentes</a>
+      <a href="https://www.exemplo.com/rsvp" target="_blank">Confirmação</a>
     </div>
+
+    <button id="playButton">Ver Convite em Vídeo</button>
   </div>
 
-  <script>
-    const btn = document.getElementById("openVideo");
-    const modal = document.getElementById("videoModal");
-    const close = document.getElementById("closeVideo");
+  <video id="video" class="fullscreen-video">
+    <source src="video.mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo.
+  </video>
 
-    btn.onclick = () => modal.style.display = "block";
-    close.onclick = () => modal.style.display = "none";
-    window.onclick = (e) => {
-      if (e.target == modal) modal.style.display = "none";
-    };
+  <script>
+    const playButton = document.getElementById("playButton");
+    const invitation = document.getElementById("invitation");
+    const video = document.getElementById("video");
+
+    playButton.addEventListener("click", () => {
+      invitation.style.display = "none";
+      video.style.display = "block";
+      video.play();
+    });
   </script>
 </body>
 </html>
