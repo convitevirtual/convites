@@ -3,27 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Convite Virtual</title>
+  <title>Convite de Casamento</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="click-to-play" id="clickToPlay">
-    <p>Clique para iniciar o convite</p>
+  <div class="container">
+    <h1>João & Maria</h1>
+    <p class="date">25 de Dezembro de 2025 às 18h</p>
+    <p class="location">Espaço Bella Vista - São Paulo, SP</p>
+
+    <button id="openVideo">Ver Convite em Vídeo</button>
+
+    <div id="videoModal" class="modal">
+      <div class="modal-content">
+        <span id="closeVideo" class="close">&times;</span>
+        <video controls autoplay>
+          <source src="video.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo.
+        </video>
+      </div>
+    </div>
   </div>
 
-  <video id="video" class="background-video">
-    <source src="video.mp4" type="video/mp4" />
-    Seu navegador não suporta vídeo.
-  </video>
-
   <script>
-    const video = document.getElementById('video');
-    const clickToPlay = document.getElementById('clickToPlay');
+    const btn = document.getElementById("openVideo");
+    const modal = document.getElementById("videoModal");
+    const close = document.getElementById("closeVideo");
 
-    clickToPlay.addEventListener('click', () => {
-      video.play();
-      clickToPlay.style.display = 'none';
-    });
+    btn.onclick = () => modal.style.display = "block";
+    close.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => {
+      if (e.target == modal) modal.style.display = "none";
+    };
   </script>
 </body>
 </html>
